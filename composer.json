@@ -1,0 +1,26 @@
+{
+    "name": "varun/chaman-addons",
+    "authors": [
+        {
+            "name": "Varun Chauhan",
+            "email": "varun9509@gmail.com"
+        }
+    ],
+    "require": {
+        "gizburdt/cuztom": "^3.1",
+        "cmb2/cmb2": "^2.6"
+    },
+    "autoload": {
+    	"psr-4": {
+    		"ChamanAddons\\": ""
+    	}
+    },
+    "files": [
+        "vendor/cmb2/cmb2/init.php"
+    ],
+    "extra": {
+        "installer-paths": {
+            "vendor/cmb2/cmb2": ["cmb2/cmb2"]
+        }
+    }
+}
