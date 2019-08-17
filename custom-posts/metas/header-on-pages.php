@@ -31,7 +31,7 @@ class HeaderOnPages extends Meta {
     $cmb->add_field([
       'name'          => __( 'Overlay Header', 'chaman_addons' ),
       'desc'          => __( 'Overlay the header over content', 'chaman_addons' ),
-      'id'            => '__overlay_header',
+      'id'            => '__header__overlay_header',
       'type'          => 'radio_inline',
       'default'       => 'yes',
       'options'       =>  [

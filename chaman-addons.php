@@ -350,7 +350,7 @@ final class Chaman_Addons {
    */
   public function register_elementor_categories($elements_manager) {
     $elements_manager->add_category(
-      'Chaman-addons',
+      'chaman-addons',
       [
         'title' => 'Chaman Addons',
         'icon' => 'fa fa-plug'
@@ -374,6 +374,7 @@ final class Chaman_Addons {
 
     // Register Widget
     // $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Sample_Widget() );
+    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Button_Widget() );
   }
 
   /**
@@ -392,8 +393,13 @@ final class Chaman_Addons {
     $controls_manager = \Elementor\Plugin::instance()->controls_manager;
 
     // Register Controls
-    // $controls_manager->register_control('Chaman_sample', new Sample_Control());
-    // $controls_manager->add_group_control('Chaman_sample_group', new Controls\Groups\SampleGroup_Control());
+    // $controls_manager->register_control('chaman_sample', new Sample_Control());
+    // $controls_manager->add_group_control('chaman_sample_group', new Controls\Groups\SampleGroup_Control());
+
+    $controls_manager->add_group_control(
+      Controls\Groups\ColorPicker_Control::get_type(),
+      new Controls\Groups\ColorPicker_Control()
+    );
   }
 
   /**

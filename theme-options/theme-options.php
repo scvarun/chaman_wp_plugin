@@ -140,6 +140,7 @@ class ThemeOptions {
    * @access public
    */
   public function init_sections() {
+    Options\Header::section('chaman_options');
     Options\Footer::section('chaman_options');
     Options\SiteIdentity::section('chaman_options');
   }
@@ -154,6 +155,7 @@ class ThemeOptions {
    * @access public
    */
   public function init_controls() {
+    Options\Header::fields();
     Options\Footer::fields();
     Options\SiteIdentity::fields();
   }

@@ -22,7 +22,7 @@ class Chaman_Elementor_Sample_Widget extends ChamanBaseWidget {
    * @return string Widget name.
    */
   public function get_name() {
-    return 'Chaman_sample_widget';
+    return 'chaman_sample_widget';
   }
 
   /**
