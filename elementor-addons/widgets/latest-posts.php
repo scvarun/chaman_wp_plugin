@@ -138,7 +138,7 @@ class Chaman_Elementor_Latest_Post_Widget extends ChamanBaseWidget {
               <?php endif; ?>
               <div class="entry-content">
                 <h5 class="entry-title h4">
-                  <a href="page-single-blog.php"><?php echo get_the_title(); ?></a>
+                  <a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a>
                 </h5>
                 <?php echo wp_trim_words( get_the_content(), 20 ); ?>
               </div>
