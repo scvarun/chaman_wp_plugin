@@ -197,9 +197,10 @@ class ColorPicker_Control extends \Elementor\Group_Control_Base {
         'disabled' => false,
         'options' => [],
         'render_type' => 'ui',
+        'default_selector' => true,
         'selectors' => [
           '{{SELECTOR}}' => 'color: {{VALUE}}',
-        ]
+        ],
       ],
 
       'theme_color' => [
