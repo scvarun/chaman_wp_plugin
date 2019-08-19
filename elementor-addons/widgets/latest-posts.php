@@ -9,7 +9,7 @@ use ChamanAddons\ElementorAddons\Controls\Groups;
 use ChamanAddons\ElementorAddons\Widgets\ChamanBaseWidget;
 use Elementor\Controls_Manager;
 
-class Chaman_Elementor_Sample_Widget extends ChamanBaseWidget {
+class Chaman_Elementor_Latest_Post_Widget extends ChamanBaseWidget {
   
   /**
    * Get Widget name.
@@ -23,7 +23,7 @@ class Chaman_Elementor_Sample_Widget extends ChamanBaseWidget {
    * @return string Widget name.
    */
   public function get_name() {
-    return 'chaman_sample_widget';
+    return 'chaman_latest_post_widget';
   }
 
   /**
@@ -38,7 +38,7 @@ class Chaman_Elementor_Sample_Widget extends ChamanBaseWidget {
    * @return string Widget title.
    */
   public function get_title() {
-    return __('Sample Widget', 'chaman_addons');
+    return __('Latest Posts', 'chaman_addons');
   }
 
   /**
@@ -91,6 +91,14 @@ class Chaman_Elementor_Sample_Widget extends ChamanBaseWidget {
       ]
     );
 
+    $this->add_group_control(
+      Groups\CustomQuery_Control::get_type(),
+      [
+        'name' => 'custom_query',
+        'label' => __('Custom Query', 'unifato_addons'),
+      ]
+    );
+
     $this->end_controls_section();
 
     $this->_register_controls_parent();
@@ -107,10 +115,42 @@ class Chaman_Elementor_Sample_Widget extends ChamanBaseWidget {
    */
   protected function render() {
     $this->_render_parent();
-    
+
     $settings = $this->get_settings_for_display();
+    $id = $this->get_id();
+
+    $args = Groups\CustomQuery_Control::get_query('custom_query', $settings);
+
+    $query = new \WP_Query($args);
+
     ?>
+    
+      <?php if( $query->have_posts() ): ?>
+        <div id="blogpost-thumbs-<?php echo $id; ?>" class="blogpost-thumbs row text-white">
+          <?php while( $query->have_posts() ) : $query->the_post(); ?>
+          <div class="col-lg-4">
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+              <?php if( has_post_thumbnail() ): ?>
+              <figure class="entry-thumbnail">
+                <?php the_post_thumbnail(); ?>
+                <a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+              </figure>
+              <?php endif; ?>
+              <div class="entry-content">
+                <h5 class="entry-title h4">
+                  <a href="page-single-blog.php"><?php echo get_the_title(); ?></a>
+                </h5>
+                <?php echo wp_trim_words( get_the_content(), 20 ); ?>
+              </div>
+            </article>
+          </div><!-- /.col-lg-4 -->
+          <?php endwhile; ?>
+        </div><!-- /.blogpost-thumbs -->
+      <?php endif; ?>
+
     <?php
+
+    wp_reset_postdata();
   }
 
   /**

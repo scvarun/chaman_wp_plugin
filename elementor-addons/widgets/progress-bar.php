@@ -9,7 +9,7 @@ use ChamanAddons\ElementorAddons\Controls\Groups;
 use ChamanAddons\ElementorAddons\Widgets\ChamanBaseWidget;
 use Elementor\Controls_Manager;
 
-class Chaman_Elementor_Sample_Widget extends ChamanBaseWidget {
+class Chaman_Elementor_Progress_Bar_Widget extends ChamanBaseWidget {
   
   /**
    * Get Widget name.
@@ -23,7 +23,7 @@ class Chaman_Elementor_Sample_Widget extends ChamanBaseWidget {
    * @return string Widget name.
    */
   public function get_name() {
-    return 'chaman_sample_widget';
+    return 'chaman_progress_bar_widget';
   }
 
   /**
@@ -38,7 +38,7 @@ class Chaman_Elementor_Sample_Widget extends ChamanBaseWidget {
    * @return string Widget title.
    */
   public function get_title() {
-    return __('Sample Widget', 'chaman_addons');
+    return __('Progress Bar', 'chaman_addons');
   }
 
   /**
@@ -91,6 +91,42 @@ class Chaman_Elementor_Sample_Widget extends ChamanBaseWidget {
       ]
     );
 
+    $this->add_control(
+      'title',
+      [
+        'label' => __('Title', 'chaman_addons'),
+        'type' => \Elementor\Controls_Manager::TEXT,
+        'default' => 'Title',
+      ]
+    );
+
+    $this->add_control(
+      'current_value',
+      [
+        'label' => __('Current Value', 'chaman_addons'),
+        'type' => \Elementor\Controls_Manager::NUMBER,
+        'default' => 10
+      ]
+    );
+
+    $this->add_control(
+      'max_value',
+      [
+        'label' => __('Max Value', 'chaman_addons'),
+        'type' => \Elementor\Controls_Manager::NUMBER,
+        'default' => 100
+      ]
+    );
+
+    $this->add_control(
+      'min_value',
+      [
+        'label' => __('Min Value', 'chaman_addons'),
+        'type' => \Elementor\Controls_Manager::NUMBER,
+        'default' => 0
+      ]
+    );
+
     $this->end_controls_section();
 
     $this->_register_controls_parent();
@@ -110,6 +146,23 @@ class Chaman_Elementor_Sample_Widget extends ChamanBaseWidget {
     
     $settings = $this->get_settings_for_display();
     ?>
+  
+      <div class="custom-progress-bar">
+        <div class="progress">
+          <div  class="progress-bar" 
+                role="progressbar" 
+                style="height: <?php echo $settings['current_value'] * 100 / ($settings['max_value'] - $settings['min_value']) ?>%" 
+                aria-valuenow="<?php echo $settings['current_value']; ?>" 
+                aria-valuemin="<?php echo $settings['min_value']; ?>" 
+                aria-valuemax="<?php echo $settings['max_value']; ?>">
+          </div>
+        </div><!-- /.progress -->
+        <div class="progress-content">
+          <h2 class="progress-title"><?php echo $settings['current_value']; ?></h2>
+          <h6 class="progress-subtitle"><?php echo $settings['title']; ?></h6>
+        </div><!-- /.progress-content -->
+      </div><!-- /.custom-progress-bar -->
+
     <?php
   }
 

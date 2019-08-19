@@ -142,15 +142,10 @@ class ColorPicker_Control extends \Elementor\Group_Control_Base {
         'info' => 'Info',
         'warning' => 'Warning',
         'danger' => 'Danger',
-        
-        'facebook' => 'Facebook',
-        'twitter' => 'Twitter',
-        'googleplus' => 'Google Plus',
-        'linkedin' => 'LinkedIn',
-        'instagram' => 'Instagram',
-        'pinterest' => 'Pinterest',
-        'dribbble' => 'Dribbble',
-        'youtube' => 'Youtube',
+
+        'dark' => 'Dark',
+        'light' => 'Light',
+        'white' => 'White',
       ]
     ];
 

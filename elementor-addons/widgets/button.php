@@ -7,6 +7,7 @@ if ( !defined( 'ABSPATH') ) exit;
 
 use ChamanAddons\ElementorAddons\Controls\Groups;
 use ChamanAddons\ElementorAddons\Widgets\ChamanBaseWidget;
+use Elementor\Controls_Manager;
 
 class Chaman_Elementor_Button_Widget extends ChamanBaseWidget {
   
@@ -90,14 +91,6 @@ class Chaman_Elementor_Button_Widget extends ChamanBaseWidget {
       ]
     );
 
-    $this->start_controls_section(
-      'content_section',
-      [
-        'label' => __('Content', 'chaman_addons'),
-        'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-      ]
-    );
-
     $this->add_control(
       'tag',
       [
@@ -120,8 +113,7 @@ class Chaman_Elementor_Button_Widget extends ChamanBaseWidget {
         'type' => Controls_Manager::SELECT2,
         'options' => [
           'default' => 'Default',
-          'rounded' => 'Rounded',
-          'circle' => 'Circle',
+          'link' => 'Link'
         ],
         'default' => 'default'
       ]
@@ -205,6 +197,81 @@ class Chaman_Elementor_Button_Widget extends ChamanBaseWidget {
 
     $this->end_controls_section();
 
+    $this->start_controls_section(
+      'style_section',
+      [
+        'label' => __('Style', 'chaman_addons'),
+        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+      ]
+    );
+
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'name' => 'button_typography',
+        'label' => __( 'Typography', 'chaman_addons' ),
+        'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+        'selector' => '{{WRAPPER}} .btn',
+      ]
+    );
+
+    $this->add_control(
+      'padding_btn',
+      [
+        'label' => __( 'Button Padding', 'unifato_addons' ),
+        'type' => Controls_Manager::DIMENSIONS,
+        'size_units' => [ 'px', '%', 'em' ],
+        'selectors' => [
+          '{{WRAPPER}} .btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+      ]
+    );
+
+    $this->add_control(
+      'btn_color',
+      [
+        'label' => __( 'Button Text Color', 'chaman_addons' ),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'scheme' => [
+          'type' => \Elementor\Scheme_Color::get_type(),
+          'value' => \Elementor\Scheme_Color::COLOR_1,
+        ],
+        'selectors' => [
+          '{{WRAPPER}} .btn' => 'color: {{VALUE}}',
+        ],
+      ]
+    );
+
+    $this->add_group_control(
+      \Elementor\Group_Control_Border::get_type(),
+      [
+        'name' => 'border',
+        'label' => __( 'Border', 'chaman_addons' ),
+        'selector' => '{{WRAPPER}} .btn',
+      ]
+    );
+
+    $this->add_control(
+      'btn_border_width',
+      [
+        'label' => __( 'Border Width', 'chaman_addons' ),
+        'type' => Controls_Manager::SLIDER,
+        'size_units' => [ 'px' ],
+        'range' => [
+          'px' => [
+            'min' => 0,
+            'max' => 100,
+            'step' => 1,
+          ],
+        ],
+        'selectors' => [
+          '{{WRAPPER}} .btn' => 'border-radius: {{SIZE}}{{UNIT}};',
+        ],
+      ]
+    );
+
+    $this->end_controls_section();
+
     $this->_register_controls_parent();
   }
 
@@ -221,8 +288,44 @@ class Chaman_Elementor_Button_Widget extends ChamanBaseWidget {
     $this->_render_parent();
     
     $settings = $this->get_settings_for_display();
-    ?>
-    <?php
+
+    $text = htmlspecialchars_decode($settings['text']);
+
+    $classes = '';
+
+    if( $settings['btn_style'] == 'default' ) {
+      if( $settings['outline'] == 'yes' )
+        $classes .= 'btn btn-outline-' . $settings['color_theme_color'];
+      else
+        $classes .= 'btn btn-' . $settings['color_theme_color'];
+    } else if ( $settings['btn_style'] == 'link' ) {
+      $classes .= 'btn btn-link';
+    }
+
+    if( $settings['block'] == 'yes' )
+      $classes .= ' btn-block';
+
+    if($settings['size'] != 'default')
+      $classes .= ' btn-' . $settings['size'];
+
+    if($settings['tag'] == 'link') {
+      $url = $settings['url'];
+      $target = $url['is_external'] ? ' target="_blank"' : '';
+      $nofollow = $url['nofollow'] ? ' rel="nofollow"': '';
+      ?>
+        <a  class="<?php echo $classes; ?>" 
+            href="<?php echo $url['url']; ?>" 
+            <?php echo $target; ?> <?php echo $nofollow; ?>>
+          <?php echo $text; ?>
+        </a>
+      <?php
+    } else {
+      ?>
+        <button type="button" class="<?php echo $classes; ?>" type="<?php echo $settings['tag']; ?>">
+          <?php echo $text; ?>
+        </button>
+      <?php
+    }
   }
 
   /**

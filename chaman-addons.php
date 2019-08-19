@@ -375,6 +375,13 @@ final class Chaman_Addons {
     // Register Widget
     // $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Sample_Widget() );
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Button_Widget() );
+    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Latest_Post_Widget() );
+    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Testimonial_Widget() );
+    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Team_Members_Widget() );
+    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Facilitator_Widget() );
+    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Progress_Bar_Widget() );
+    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Partners_Widget() );
+    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Job_Listing_Widget() );
   }
 
   /**
@@ -399,6 +406,11 @@ final class Chaman_Addons {
     $controls_manager->add_group_control(
       Controls\Groups\ColorPicker_Control::get_type(),
       new Controls\Groups\ColorPicker_Control()
+    );
+
+    $controls_manager->add_group_control(
+      Controls\Groups\CustomQuery_Control::get_type(),
+      new Controls\Groups\CustomQuery_Control()
     );
   }
 
