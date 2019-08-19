@@ -188,8 +188,8 @@ class Chaman_Elementor_Facilitator_Widget extends ChamanBaseWidget {
         <span><?php echo $settings['name']; ?></span>
         <span><?php echo $settings['title']; ?></span>
         <?php if( $settings['enable_link'] == 'yes' ): ?>
-          <?php   $target = $settings['website_link']['is_external'] ? ' target="_blank"' : '';
-                  $nofollow = $settings['website_link']['nofollow'] ? ' rel="nofollow"' : ''; ?>
+          <?php   $target = $settings['link']['is_external'] ? ' target="_blank"' : '';
+                  $nofollow = $settings['link']['nofollow'] ? ' rel="nofollow"' : ''; ?>
           <p><a href="<?php echo $settings['link']['url']; ?>"<?php echo $target . $nofollow; ?>><?php echo $settings['link_text']; ?></a></p>
         <?php endif; ?>
       </div><!-- /.facilitators -->
