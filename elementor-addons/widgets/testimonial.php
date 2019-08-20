@@ -177,25 +177,27 @@ class Chaman_Elementor_Testimonial_Widget extends ChamanBaseWidget {
     
     $settings = $this->get_settings_for_display();
 
-    $classes = "row testimonial testimonial-" . $settings['alignment'];
+    $classes = "testimonial testimonial-" . $settings['alignment'];
 
     ?>
     
       <blockquote class="<?php echo $classes; ?>">
-        <div class="col-sm-7">
-          <h3 class="testimonial-title"><?php echo $settings['title']; ?></h3>
-          <h6 class="testimonial-user-info">
-            <span class="testimonial-user-name"><?php echo $settings['name']; ?></span> --
-            <span class="testimonial-user-title"><?php echo $settings['user_title']; ?></span>
-          </h6>
-          <?php echo $settings['text']; ?>
-        </div><!-- /.col-sm-7 -->
+        <div class="row">
+          <div class="col-sm-7">
+            <h3 class="testimonial-title"><?php echo $settings['title']; ?></h3>
+            <h6 class="testimonial-user-info">
+              <span class="testimonial-user-name"><?php echo $settings['name']; ?></span> --
+              <span class="testimonial-user-title"><?php echo $settings['user_title']; ?></span>
+            </h6>
+            <?php echo $settings['text']; ?>
+          </div><!-- /.col-sm-7 -->
 
-        <div class="col-sm-5">
-          <figure>
-            <img src="<?php echo $settings['image']['url']; ?>" alt="<?php echo $settings['name'] . ' - ' . $settings['user_title']; ?>">
-          </figure>
-        </div><!-- /.col-sm-5 -->
+          <div class="col-sm-5">
+            <figure>
+              <img src="<?php echo $settings['image']['url']; ?>" alt="<?php echo $settings['name'] . ' - ' . $settings['user_title']; ?>">
+            </figure>
+          </div><!-- /.col-sm-5 -->
+        </div><!-- /.row -->
       </blockquote>
       
     <?php
