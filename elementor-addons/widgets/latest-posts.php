@@ -128,7 +128,7 @@ class Chaman_Elementor_Latest_Post_Widget extends ChamanBaseWidget {
       <?php if( $query->have_posts() ): ?>
         <div id="blogpost-thumbs-<?php echo $id; ?>" class="blogpost-thumbs">
           <?php while( $query->have_posts() ) : $query->the_post(); ?>
-          <div class="col-md-4">
+          <div class="blogpost-thumbs-single">
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
               <?php if( has_post_thumbnail() ): ?>
               <figure class="entry-thumbnail">
