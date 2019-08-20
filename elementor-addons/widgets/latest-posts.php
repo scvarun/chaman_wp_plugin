@@ -126,7 +126,7 @@ class Chaman_Elementor_Latest_Post_Widget extends ChamanBaseWidget {
     ?>
     
       <?php if( $query->have_posts() ): ?>
-        <div id="blogpost-thumbs-<?php echo $id; ?>" class="blogpost-thumbs row text-white">
+        <div id="blogpost-thumbs-<?php echo $id; ?>" class="blogpost-thumbs">
           <?php while( $query->have_posts() ) : $query->the_post(); ?>
           <div class="col-md-4">
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -143,7 +143,7 @@ class Chaman_Elementor_Latest_Post_Widget extends ChamanBaseWidget {
                 <?php echo wp_trim_words( get_the_content(), 20 ); ?>
               </div>
             </article>
-          </div><!-- /.col-md-4 -->
+          </div>
           <?php endwhile; ?>
         </div><!-- /.blogpost-thumbs -->
       <?php endif; ?>
