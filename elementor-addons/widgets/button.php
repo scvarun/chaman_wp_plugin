@@ -215,7 +215,7 @@ class Chaman_Elementor_Button_Widget extends ChamanBaseWidget {
       ]
     );
 
-    $this->add_control(
+    $this->add_responsive_control(
       'padding_btn',
       [
         'label' => __( 'Button Padding', 'unifato_addons' ),
@@ -251,10 +251,10 @@ class Chaman_Elementor_Button_Widget extends ChamanBaseWidget {
       ]
     );
 
-    $this->add_control(
-      'btn_border_width',
+    $this->add_responsive_control(
+      'btn_border_radius',
       [
-        'label' => __( 'Border Width', 'chaman_addons' ),
+        'label' => __( 'Border Radius', 'chaman_addons' ),
         'type' => Controls_Manager::SLIDER,
         'size_units' => [ 'px' ],
         'range' => [

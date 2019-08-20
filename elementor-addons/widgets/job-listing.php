@@ -130,7 +130,7 @@ class Chaman_Elementor_Job_Listing_Widget extends ChamanBaseWidget {
         <?php if($query->have_posts()): ?>
           <?php while($query->have_posts()): $query->the_post(); ?>
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php unifato_the_microdata( 'article' ); ?>>
-            <h4><?php the_title(); ?></h4>
+            <h5 class="entry-title"><?php the_title(); ?></h5>
             <p><a href="<?php echo get_the_permalink(); ?>">Read More</a></p>
           </article>
           <?php endwhile; ?>
