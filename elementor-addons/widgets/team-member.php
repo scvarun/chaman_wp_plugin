@@ -163,20 +163,18 @@ class Chaman_Elementor_Team_Members_Widget extends ChamanBaseWidget {
     $id = $this->get_id();
 
     ?>
-      <div id="team-members-<?php echo $id; ?>" class="team-members row">
+      <div id="team-members-<?php echo $id; ?>" class="team-members">
         <?php foreach($settings['list'] as $member): ?>
-        <div class="col-lg-4">
-          <div class="team-member-single">
-            <figure>
-              <img src="<?php echo $member['image']['url']; ?>" />
-            </figure>
-            <div class="team-member-content">
-              <h5 class="team-member-name"><?php echo $member['name']; ?></h5>
-              <p class="team-member-title"><?php echo $member['title']; ?></p>
-              <p><?php echo $member['description']; ?></p>
-            </div><!-- /.team-member-content -->
-          </div><!-- /.team-member-single -->
-        </div><!-- /.col-lg-4 -->
+        <div class="team-member-single">
+          <figure>
+            <img src="<?php echo $member['image']['url']; ?>" />
+          </figure>
+          <div class="team-member-content">
+            <h5 class="team-member-name"><?php echo $member['name']; ?></h5>
+            <p class="team-member-title"><?php echo $member['title']; ?></p>
+            <p><?php echo $member['description']; ?></p>
+          </div><!-- /.team-member-content -->
+        </div><!-- /.team-member-single -->
         <?php endforeach; ?>
       </div><!-- /.team-members -->
     <?php
