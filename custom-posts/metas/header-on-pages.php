@@ -33,7 +33,7 @@ class HeaderOnPages extends Meta {
       'desc'          => __( 'Overlay the header over content', 'chaman_addons' ),
       'id'            => '__header__overlay_header',
       'type'          => 'radio_inline',
-      'default'       => 'yes',
+      'default'       => 'no',
       'options'       =>  [
         'yes' => __('Yes', 'chaman_addons'),
         'no' => __('No', 'chaman_addons'),
