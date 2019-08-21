@@ -161,21 +161,19 @@ class Chaman_Elementor_Partners_Widget extends ChamanBaseWidget {
     $settings = $this->get_settings_for_display();
     ?>
 
-      <div class="partners row">
+      <div class="partners" data-plugin-options='{"slidesToShow": 2, "slidesToScroll": 2}'>
         <?php foreach($settings['list'] as $partner): ?>
-        <div class="col-lg-6">
-          <div class="partners-single">
-            <figure>
-              <img src="<?php echo $partner['image']['url']; ?>" alt="<?php echo $partner['title']; ?>" />
-            </figure>
-            <div class="partners-single-content">
-              <h5 class="partners-single-title"><?php echo $partner['title']; ?></h5>
-              <p class="partners-single-subtitle"><?php echo $partner['subtitle']; ?></p>
-              <p><?php echo $partner['description']; ?></p>
-            </div><!-- /.partners-single-content -->
-          </div><!-- /.partners-single -->
-        </div><!-- /.col-lg-6 -->
-        <?php endforeach; ?>  
+        <div class="partners-single">
+          <figure>
+            <img src="<?php echo $partner['image']['url']; ?>" alt="<?php echo $partner['title']; ?>" />
+          </figure>
+          <div class="partners-single-content">
+            <h5 class="partners-single-title"><?php echo $partner['title']; ?></h5>
+            <p class="partners-single-subtitle"><?php echo $partner['subtitle']; ?></p>
+            <p><?php echo $partner['description']; ?></p>
+          </div><!-- /.partners-single-content -->
+        </div><!-- /.partners-single -->
+        <?php endforeach; ?>
       </div><!-- /.partners -->
     <?php
   }
