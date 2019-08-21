@@ -159,9 +159,11 @@ class Chaman_Elementor_Partners_Widget extends ChamanBaseWidget {
     $this->_render_parent();
     
     $settings = $this->get_settings_for_display();
+
+    $id = $this->get_id();
     ?>
 
-      <div class="partners" data-plugin-options='{"slidesToShow": 2, "slidesToScroll": 2}'>
+      <div id="partners-<?php echo $id; ?>" class="partners" data-plugin-options='{"slidesToShow": 2, "slidesToScroll": 2}'>
         <?php foreach($settings['list'] as $partner): ?>
         <div class="partners-single">
           <figure>
