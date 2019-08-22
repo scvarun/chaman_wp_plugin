@@ -167,7 +167,7 @@ class Chaman_Elementor_Team_Members_Widget extends ChamanBaseWidget {
         <?php foreach($settings['list'] as $member): ?>
         <div class="team-member-single">
           <figure>
-            <img src="<?php echo $member['image']['id']; ?>" />
+            <img src="<?php echo $member['image']['url']; ?>" />
           </figure>
           <div class="team-member-content">
             <h5 class="team-member-name"><?php echo $member['name']; ?></h5>
