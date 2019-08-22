@@ -188,6 +188,7 @@ class Chaman_Elementor_Facilitator_Widget extends ChamanBaseWidget {
           <img  src="<?php echo $image[0]; ?>"
                 width="<?php echo $image[1]; ?>"
                 height="<?php echo $image[2]; ?>" 
+                style="max-width: <?php echo $image[1]; ?>; max-height: <?php echo $image[2]; ?>"
                 alt="<?php echo $settings['name']; ?>" />
         </figure>
         <span><?php echo $settings['name']; ?></span>
