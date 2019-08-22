@@ -181,7 +181,7 @@ class Chaman_Elementor_Facilitator_Widget extends ChamanBaseWidget {
     
     $settings = $this->get_settings_for_display();
 
-    $image = wp_get_attachment_image_src($settings['image']['id'], 'thumbnail');
+    $image = wp_get_attachment_image_src($settings['image']['id'], 'large');
     ?>
       <div class="facilitator">
         <figure>
