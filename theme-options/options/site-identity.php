@@ -37,6 +37,19 @@ class SiteIdentity extends Options {
    * @static
    */
   public static function fields() {
+    // Sticky Logo
+    Kirki::add_field( 'chaman_options', [
+      'type'        => 'image',
+      'settings'    => static::$settings_name . '__sticky_logo',
+      'label'       => esc_html__( 'Sticky Logo', 'chaman_addons' ),
+      'description' => esc_html__( 'Logo for Sticky Header', 'chaman_addons' ),
+      'section'     => static::$section_name,
+      'default'     => '',
+      'choices'     => [
+        'save_as' => 'id'
+      ]
+    ]);
+
     // Mobile Logo
     Kirki::add_field( 'chaman_options', [
       'type'        => 'image',
@@ -50,12 +63,12 @@ class SiteIdentity extends Options {
       ]
     ]);
 
-    // Sticky Logo
+    // Sticky Mobile Logo
     Kirki::add_field( 'chaman_options', [
       'type'        => 'image',
-      'settings'    => static::$settings_name . '__sticky_logo',
-      'label'       => esc_html__( 'Sticky Logo', 'chaman_addons' ),
-      'description' => esc_html__( 'Logo for Sticky Header', 'chaman_addons' ),
+      'settings'    => static::$settings_name . '__sticky_mobile_logo',
+      'label'       => esc_html__( 'Sticky Mobile Logo', 'chaman_addons' ),
+      'description' => esc_html__( 'Logo for Sticky Header on Mobile', 'chaman_addons' ),
       'section'     => static::$section_name,
       'default'     => '',
       'choices'     => [
