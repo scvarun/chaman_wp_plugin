@@ -180,10 +180,14 @@ class Chaman_Elementor_Facilitator_Widget extends ChamanBaseWidget {
     $this->_render_parent();
     
     $settings = $this->get_settings_for_display();
+
+    $image = wp_get_attachment_image_src($settings['image']['id'], 'thumbnail');
     ?>
       <div class="facilitator">
         <figure>
-          <img  src="<?php echo wp_get_attachment_image_src($settings['image']['id'], 'thumbnail'); ?>" 
+          <img  src="<?php echo $image[0]; ?>"
+                width="<?php echo $image[1]; ?>"
+                height="<?php echo $image[2]; ?>" 
                 alt="<?php echo $settings['name']; ?>" />
         </figure>
         <span><?php echo $settings['name']; ?></span>
