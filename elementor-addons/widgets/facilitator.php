@@ -191,13 +191,15 @@ class Chaman_Elementor_Facilitator_Widget extends ChamanBaseWidget {
                 style="max-width: <?php echo $image[1]; ?>; max-height: <?php echo $image[2]; ?>"
                 alt="<?php echo $settings['name']; ?>" />
         </figure>
-        <span><?php echo $settings['name']; ?></span>
-        <span><?php echo $settings['title']; ?></span>
-        <?php if( $settings['enable_link'] == 'yes' ): ?>
-          <?php   $target = $settings['link']['is_external'] ? ' target="_blank"' : '';
-                  $nofollow = $settings['link']['nofollow'] ? ' rel="nofollow"' : ''; ?>
-          <p><a href="<?php echo $settings['link']['url']; ?>"<?php echo $target . $nofollow; ?>><?php echo $settings['link_text']; ?></a></p>
-        <?php endif; ?>
+        <div class="facilitator-content">
+          <span><?php echo $settings['name']; ?></span>
+          <span><?php echo $settings['title']; ?></span>
+          <?php if( $settings['enable_link'] == 'yes' ): ?>
+            <?php   $target = $settings['link']['is_external'] ? ' target="_blank"' : '';
+                    $nofollow = $settings['link']['nofollow'] ? ' rel="nofollow"' : ''; ?>
+            <p><a href="<?php echo $settings['link']['url']; ?>"<?php echo $target . $nofollow; ?>><?php echo $settings['link_text']; ?></a></p>
+          <?php endif; ?>
+        </div><!-- /.facilitator-content -->
       </div><!-- /.facilitators -->
     <?php
   }
