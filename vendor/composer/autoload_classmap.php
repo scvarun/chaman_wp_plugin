@@ -35,6 +35,7 @@ return array(
     'ChamanAddons\\ThemeOptions\\Options\\Options' => $baseDir . '/theme-options/options/options.php',
     'ChamanAddons\\ThemeOptions\\Options\\Sample' => $baseDir . '/theme-options/options/_sample.php',
     'ChamanAddons\\ThemeOptions\\Options\\SiteIdentity' => $baseDir . '/theme-options/options/site-identity.php',
+    'ChamanAddons\\ThemeOptions\\Options\\Social' => $baseDir . '/theme-options/options/social.php',
     'ChamanAddons\\ThemeOptions\\ThemeOptions' => $baseDir . '/theme-options/theme-options.php',
     'Gizburdt\\Cuztom\\Cuztom' => $vendorDir . '/gizburdt/cuztom/src/Cuztom.php',
     'Gizburdt\\Cuztom\\Entities\\Entity' => $vendorDir . '/gizburdt/cuztom/src/Entities/Entity.php',

@@ -63,6 +63,7 @@ class ComposerStaticInit187d8f3e894bedbebaf1dee103573192
         'ChamanAddons\\ThemeOptions\\Options\\Options' => __DIR__ . '/../..' . '/theme-options/options/options.php',
         'ChamanAddons\\ThemeOptions\\Options\\Sample' => __DIR__ . '/../..' . '/theme-options/options/_sample.php',
         'ChamanAddons\\ThemeOptions\\Options\\SiteIdentity' => __DIR__ . '/../..' . '/theme-options/options/site-identity.php',
+        'ChamanAddons\\ThemeOptions\\Options\\Social' => __DIR__ . '/../..' . '/theme-options/options/social.php',
         'ChamanAddons\\ThemeOptions\\ThemeOptions' => __DIR__ . '/../..' . '/theme-options/theme-options.php',
         'Gizburdt\\Cuztom\\Cuztom' => __DIR__ . '/..' . '/gizburdt/cuztom/src/Cuztom.php',
         'Gizburdt\\Cuztom\\Entities\\Entity' => __DIR__ . '/..' . '/gizburdt/cuztom/src/Entities/Entity.php',
