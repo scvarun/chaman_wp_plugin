@@ -36,7 +36,7 @@ class Sample extends Options {
    * @access protected
    * @static
    */
-  protected static $description = 'Sample description', 'chaman_addons';
+  protected static $description = 'Sample description';
 
    /**
    * Return Fields

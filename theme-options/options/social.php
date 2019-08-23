@@ -36,7 +36,7 @@ class Social extends Options {
    * @access protected
    * @static
    */
-  protected static $description = 'Links to social networking sites', 'chaman_addons';
+  protected static $description = 'Links to social networking sites';
 
    /**
    * Return Fields
