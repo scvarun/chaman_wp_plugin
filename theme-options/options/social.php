@@ -53,7 +53,7 @@ class Social extends Options {
       'settings'    => static::$settings_name . '__facebook_url',
       'label'       => esc_html__( 'Facebook Url', 'chaman_addons' ),
       'description' => esc_html__( 'Add url to the facebook profile here', 'chaman_addons' ),
-      'section'     => static::$section_name,
+      'section'     => static::$settings_name,
       'default'     => '',
     ]);
 
@@ -63,7 +63,7 @@ class Social extends Options {
       'settings'    => static::$settings_name . '__instagram_url',
       'label'       => esc_html__( 'Instagram Url', 'chaman_addons' ),
       'description' => esc_html__( 'Add url to the instagram profile here', 'chaman_addons' ),
-      'section'     => static::$section_name,
+      'section'     => static::$settings_name,
       'default'     => '',
     ]);
 
@@ -73,7 +73,7 @@ class Social extends Options {
       'settings'    => static::$settings_name . '__linkedin_url',
       'label'       => esc_html__( 'LinkedIn Url', 'chaman_addons' ),
       'description' => esc_html__( 'Add url to the LinkedIn profile here', 'chaman_addons' ),
-      'section'     => static::$section_name,
+      'section'     => static::$settings_name,
       'default'     => '',
     ]);
   }
