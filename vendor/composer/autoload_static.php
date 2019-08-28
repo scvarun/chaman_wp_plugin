@@ -34,6 +34,7 @@ class ComposerStaticInit187d8f3e894bedbebaf1dee103573192
     );
 
     public static $classMap = array (
+        'ChamanAddons\\CF7_Addons\\CF7_Addons' => __DIR__ . '/../..' . '/cf7-addons/cf7-addons.php',
         'ChamanAddons\\Chaman_Addons' => __DIR__ . '/../..' . '/chaman-addons.php',
         'ChamanAddons\\CustomPosts\\CustomPosts' => __DIR__ . '/../..' . '/custom-posts/custom-posts.php',
         'ChamanAddons\\CustomPosts\\Fields\\SelectPost' => __DIR__ . '/../..' . '/custom-posts/fields/select-post.php',

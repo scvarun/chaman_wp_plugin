@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'ChamanAddons\\CF7_Addons\\CF7_Addons' => $baseDir . '/cf7-addons/cf7-addons.php',
     'ChamanAddons\\Chaman_Addons' => $baseDir . '/chaman-addons.php',
     'ChamanAddons\\CustomPosts\\CustomPosts' => $baseDir . '/custom-posts/custom-posts.php',
     'ChamanAddons\\CustomPosts\\Fields\\SelectPost' => $baseDir . '/custom-posts/fields/select-post.php',

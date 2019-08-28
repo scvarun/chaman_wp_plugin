@@ -478,6 +478,7 @@ final class Chaman_Addons {
 
 CustomPosts\CustomPosts::instance();
 ThemeOptions\ThemeOptions::instance();
+CF7_Addons\CF7_Addons::instance();
 Chaman_Addons::instance();
 
 ?>
