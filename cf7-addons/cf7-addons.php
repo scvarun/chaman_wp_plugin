@@ -82,6 +82,9 @@ class CF7_Addons {
   public function custom_unique_key_form_tag_handler($tag) {
     $wpcf7 = \WPCF7_ContactForm::get_current();
     $formid = $wpcf7->id();
+    // echo '<pre>';
+    // var_dump($wpcf7);
+    // die();
     $value = get_post_meta( $formid, "cf7_unique_key_COUNTER", true);
     if ($value == '') {
       $value = 100;
@@ -111,24 +114,21 @@ class CF7_Addons {
 
   public function cf7_before_send_mail($cf7) {
     foreach($cf7->scan_form_tags() as $tag) {
+      $cf7->prop('mail')['attachments'];
       if($tag->type == 'message_to_pdf') {
-        $this->cf7_before_send_mail_message_to_pdf_render($cf7);
+        $location = wp_upload_dir()['path'] . '/admissionPDFs';
+        $mpdf = new \Mpdf\Mpdf(['tempDir' => $location]);
+        $html = "
+        <h1>Somethign</h1>
+        <p>Yolo</p>
+        ";
+        $mpdf->WriteHTML($html);
+        $mpdf->SetDisplayMode('fullpage');
+        $mpdf->Output($location . '/something.pdf', 'F');
+        $cf7->add_uploaded_file('message_to_pdf', $location . '/something.pdf');
+        // $cf7->uploaded_files = [ 'message_to_pdf' => $location . '/something.pdf'];
       }
     }
     return $cf7;
-  }
-
-  public function cf7_before_send_mail_message_to_pdf_render($cf7) {
-    $submission = \WPCF7_Submission::get_instance();
-    $location = wp_upload_dir()['path'] . '/admissionPDFs';
-    $mpdf = new \Mpdf\Mpdf(['tempDir' => $location]);
-    $html = "
-    <h1>Somethign</h1>
-    <p>Yolo</p>
-    ";
-    $mpdf->WriteHTML($html);
-    $mpdf->SetDisplayMode('fullpage');
-    $mpdf->Output($location . '/' . 'something' . '.pdf', 'F');
-    $submission->add_uploaded_file('message_to_pdf', $location . '/something.pdf');
   }
 }
