@@ -114,8 +114,7 @@ class CF7_Addons {
 
   public function cf7_before_send_mail($cf7) {
     foreach($cf7->scan_form_tags() as $tag) {
-      $cf7->prop('mail')['attachments'];
-      if($tag->type == 'message_to_pdf') {
+      if( $cf7->prop('mail')['attachments'] == 'message_to_pdf' ) {
         $location = wp_upload_dir()['path'] . '/admissionPDFs';
         $mpdf = new \Mpdf\Mpdf(['tempDir' => $location]);
         $html = "
@@ -125,7 +124,8 @@ class CF7_Addons {
         $mpdf->WriteHTML($html);
         $mpdf->SetDisplayMode('fullpage');
         $mpdf->Output($location . '/something.pdf', 'F');
-        $cf7->add_uploaded_file('message_to_pdf', $location . '/something.pdf');
+        $submission = WPCF7_Submission::get_instance();
+        $submission->add_uploaded_file('message_to_pdf', $location . '/something.pdf');
         // $cf7->uploaded_files = [ 'message_to_pdf' => $location . '/something.pdf'];
       }
     }
