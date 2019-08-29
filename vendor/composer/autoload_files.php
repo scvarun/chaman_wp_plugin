@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    '6124b4c8570aa390c21fafd04a26c69f' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     'fb26e4b402d15f72c152f05d04e54222' => $vendorDir . '/gizburdt/cuztom/src/Entities/helpers.php',
     'f484f274590179976954e77760331e3d' => $vendorDir . '/gizburdt/cuztom/src/Meta/helpers.php',
 );

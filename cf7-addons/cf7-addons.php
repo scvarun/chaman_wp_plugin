@@ -49,5 +49,86 @@ class CF7_Addons {
    * @access public
    */
   public function __construct() {
+    add_action( 'wpcf7_init', [ $this, 'add_form_tags' ] );
+    add_action( 'wpcf7_admin_init', [ $this, 'admin_add_tag_generator'] );
+    add_action( 'wpcf7_submit', [ $this, 'cf7_submit' ] );
+    add_action( 'wpcf7_before_send_mail', [$this, 'cf7_before_send_mail'] );
+  }
+
+  /**
+   * Add form tags
+   *
+   * @since 1.0.0
+   *
+   * @access public
+   */
+  public function add_form_tags() {
+    wpcf7_add_form_tag( 'unique_key', [ $this, 'custom_unique_key_form_tag_handler' ], true );
+    wpcf7_add_form_tag( 'message_to_pdf', [ $this, 'custom_message_to_pdf_form_tag_handler' ], true );
+  }
+
+
+  public function admin_add_tag_generator() {
+    $tag_generator = \WPCF7_TagGenerator::get_instance();
+  }
+
+  /**
+   * Serial Id Tag
+   *
+   * @since 1.0.0
+   *
+   * @access public
+   */
+  public function custom_unique_key_form_tag_handler($tag) {
+    $wpcf7 = \WPCF7_ContactForm::get_current();
+    $formid = $wpcf7->id();
+    $value = get_post_meta( $formid, "cf7_unique_key_COUNTER", true);
+    if ($value == '') {
+      $value = 100;
+      update_post_meta( $formid, "cf7_unique_key_COUNTER", $value );
+    }
+    $value++;
+    return '<input type="hidden" name="unique_key" id="unique_key" value="'.$value.'" />';
+  }
+
+  public function custom_message_to_pdf_form_tag_handler($tag) {
+    return '<input type="file" name="message_to_pdf" />';
+  }
+
+  public function cf7_submit( $cf7 ) {
+    foreach($cf7->scan_form_tags() as $tag) {
+      if($tag->type == 'unique_key') {
+        $this->cf7_submit_unique_key_render($cf7);
+      }
+    } 
+    return $cf7;
+  }
+
+  public function cf7_submit_unique_key_render($cf7) {
+    $value = get_post_meta( $cf7->id() , "cf7_unique_key_COUNTER", true) + 1;
+    update_post_meta( $cf7->id() , "cf7_unique_key_COUNTER", $value );
+  }
+
+  public function cf7_before_send_mail($cf7) {
+    foreach($cf7->scan_form_tags() as $tag) {
+      if($tag->type == 'message_to_pdf') {
+        $this->cf7_before_send_mail_message_to_pdf_render($cf7);
+      }
+    }
+    return $cf7;
+  }
+
+  public function cf7_before_send_mail_message_to_pdf_render($cf7) {
+    $submission = \WPCF7_Submission::get_instance();
+    $location = wp_upload_dir()['path'] . '/admissionPDFs';
+    $mpdf = new \Mpdf\Mpdf(['tempDir' => $location]);
+    $html = "
+    <h1>Somethign</h1>
+    <p>Yolo</p>
+    ";
+    $mpdf->WriteHTML($html);
+    $mpdf->SetDisplayMode('fullpage');
+    $mpdf->Output($location . '/' . 'something' . '.pdf', 'F');
+    $submission->add_uploaded_file('message_to_pdf', $location . '/something.pdf');
   }
 }
