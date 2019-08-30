@@ -111,27 +111,31 @@ class CF7_Addons {
 
   public function cf7_before_send_mail($cf7) {
     if( strpos($cf7->prop('mail')['attachments'], '[message_to_pdf]') !== false ) {
-      $location = wp_upload_dir()['path'] . '/admissionPDFs';
-      $submission = \WPCF7_Submission::get_instance();
-      $posted_data = $submission->get_posted_data();
-      $html = '';
-      $template = "<p><strong>%s</strong>: %s</p><br/>";
-      foreach($posted_data as $key=>$val) {
-        if(
-          strpos($key, '_wpcf7') !== false ||
-          strpos($key, 'unique_key') !== false
-        )
-          continue;
-        $string = str_replace("_", " ", $key);
-        $string = str_replace("-", " ", $key);
-        $string = ucwords($string);
-        $html .= sprintf($template, $string, $val);
+      try {
+        $location = wp_upload_dir()['path'] . '/admissionPDFs';
+        $submission = \WPCF7_Submission::get_instance();
+        $posted_data = $submission->get_posted_data();
+        $html = '';
+        $template = "<p><strong>%s</strong>: %s</p><br/>";
+        foreach($posted_data as $key=>$val) {
+          if(
+            strpos($key, '_wpcf7') !== false ||
+            strpos($key, 'unique_key') !== false
+          )
+            continue;
+          $string = str_replace("_", " ", $key);
+          $string = str_replace("-", " ", $key);
+          $string = ucwords($string);
+          $html .= sprintf($template, $string, $val);
+        }
+        $mpdf = new \Mpdf\Mpdf(['tempDir' => $location]);
+        $mpdf->WriteHTML($html);
+        $mpdf->SetDisplayMode('fullpage');
+        $mpdf->Output($location . '/something.pdf', 'F');
+        $submission->add_uploaded_file('message_to_pdf', $location . '/something.pdf');
+      } catch( \Exception $e ) {
+        error_log($e->getMessage());
       }
-      $mpdf = new \Mpdf\Mpdf(['tempDir' => $location]);
-      $mpdf->WriteHTML($html);
-      $mpdf->SetDisplayMode('fullpage');
-      $mpdf->Output($location . '/something.pdf', 'F');
-      $submission->add_uploaded_file('message_to_pdf', $location . '/something.pdf');
     }
 
     return $cf7;
