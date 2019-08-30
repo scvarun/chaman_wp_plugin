@@ -82,9 +82,6 @@ class CF7_Addons {
   public function custom_unique_key_form_tag_handler($tag) {
     $wpcf7 = \WPCF7_ContactForm::get_current();
     $formid = $wpcf7->id();
-    // echo '<pre>';
-    // var_dump($wpcf7);
-    // die();
     $value = get_post_meta( $formid, "cf7_unique_key_COUNTER", true);
     if ($value == '') {
       $value = 100;
@@ -113,18 +110,28 @@ class CF7_Addons {
   }
 
   public function cf7_before_send_mail($cf7) {
-    if( $cf7->prop('mail')['attachments'] == '[message_to_pdf]' ) {
-    error_log($cf7->prop('mail')['attachments']);
+    error_log(strpos($cf7->prop('mail')['attachments'], '[message_to_pdf]'));
+    if( strpos($cf7->prop('mail')['attachments'], '[message_to_pdf]') !== false ) {
       $location = wp_upload_dir()['path'] . '/admissionPDFs';
+      $submission = \WPCF7_Submission::get_instance();
+      $posted_data = $submission->get_posted_data();
+      $html = '';
+      $template = "<p><strong>%s</strong>: %s</p><br/>";
+      foreach($posted_data as $key=>$val) {
+        if(
+          strpos($key, '_wpcf7') !== false ||
+          strpos($key, 'unique_key') !== false
+        )
+          continue;
+        $string = str_replace("_", " ", $key);
+        $string = str_replace("-", " ", $key);
+        $string = ucwords($string);
+        $html .= sprintf($template, $string, $val);
+      }
       $mpdf = new \Mpdf\Mpdf(['tempDir' => $location]);
-      $html = "
-      <h1>Somethign</h1>
-      <p>Yolo</p>
-      ";
       $mpdf->WriteHTML($html);
       $mpdf->SetDisplayMode('fullpage');
       $mpdf->Output($location . '/something.pdf', 'F');
-      $submission = \WPCF7_Submission::get_instance();
       $submission->add_uploaded_file('message_to_pdf', $location . '/something.pdf');
     }
 
