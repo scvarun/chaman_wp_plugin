@@ -122,7 +122,7 @@ class Chaman_Elementor_Testimonial_Widget extends ChamanBaseWidget {
       'text',
       [
         'label' => __('Text', 'chaman_addons'),
-        'type' => \Elementor\Controls_Manager::WYSIWYG,
+        'type' => \Elementor\Controls_Manager::TEXTAREA,
         'default' => 'Suspendisse potenti. Proin at lectus condimentum, aliquam justo ac, suscipit urna. Proin at ligula porta lacus tempus ullamcorper. Nunc lacus neque, tempor vitae risus eget, porta frigilla nibh.',
       ]
     );
@@ -189,7 +189,7 @@ class Chaman_Elementor_Testimonial_Widget extends ChamanBaseWidget {
               <span class="testimonial-user-name"><?php echo $settings['name']; ?></span> &mdash;
               <span class="testimonial-user-title"><?php echo $settings['user_title']; ?></span>
             </h6>
-            <?php echo $settings['text']; ?>
+            <p><?php echo $settings['text']; ?></p>
           </div><!-- /.col-sm-7 -->
 
           <div class="col-sm-5">
