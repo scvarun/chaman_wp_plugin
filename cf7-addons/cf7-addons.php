@@ -110,7 +110,6 @@ class CF7_Addons {
   }
 
   public function cf7_before_send_mail($cf7) {
-    error_log(strpos($cf7->prop('mail')['attachments'], '[message_to_pdf]'));
     if( strpos($cf7->prop('mail')['attachments'], '[message_to_pdf]') !== false ) {
       $location = wp_upload_dir()['path'] . '/admissionPDFs';
       $submission = \WPCF7_Submission::get_instance();
