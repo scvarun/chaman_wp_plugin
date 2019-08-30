@@ -125,12 +125,13 @@ class CF7_Addons {
           $html .= sprintf($template, $string, $val);
         }
         $location = wp_upload_dir()['path'] . '/admissionPDFs';
-        $file = $cf7->prop('mail')['subject'];
+        $date = new \DateTime();
+        $file = 'admission' . $date->getTimestamp() . '.pdf';
         $mpdf = new \Mpdf\Mpdf(['tempDir' => $location]);
         $mpdf->WriteHTML($html);
         $mpdf->SetDisplayMode('fullpage');
-        $mpdf->Output($location . '/something.pdf', 'F');
-        $submission->add_uploaded_file('message_to_pdf', $location . '/something.pdf');
+        $mpdf->Output($location . '/' . $file, 'F');
+        $submission->add_uploaded_file('message_to_pdf', $location . '/' . $file);
       } catch( \Exception $e ) {
         error_log($e->getMessage());
       }
