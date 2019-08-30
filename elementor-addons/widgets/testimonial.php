@@ -186,7 +186,7 @@ class Chaman_Elementor_Testimonial_Widget extends ChamanBaseWidget {
           <div class="col-sm-7">
             <h4 class="testimonial-title"><?php echo $settings['title']; ?></h4>
             <h6 class="testimonial-user-info">
-              <span class="testimonial-user-name"><?php echo $settings['name']; ?></span> --
+              <span class="testimonial-user-name"><?php echo $settings['name']; ?></span> &mdash;
               <span class="testimonial-user-title"><?php echo $settings['user_title']; ?></span>
             </h6>
             <?php echo $settings['text']; ?>
