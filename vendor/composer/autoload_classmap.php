@@ -11,6 +11,7 @@ return array(
     'ChamanAddons\\CustomPosts\\CustomPosts' => $baseDir . '/custom-posts/custom-posts.php',
     'ChamanAddons\\CustomPosts\\Fields\\SelectPost' => $baseDir . '/custom-posts/fields/select-post.php',
     'ChamanAddons\\CustomPosts\\Metas\\ContentOnPages' => $baseDir . '/custom-posts/metas/content-on-pages.php',
+    'ChamanAddons\\CustomPosts\\Metas\\ContentOnPosts' => $baseDir . '/custom-posts/metas/content-on-posts.php',
     'ChamanAddons\\CustomPosts\\Metas\\FooterOnPages' => $baseDir . '/custom-posts/metas/footer-on-pages.php',
     'ChamanAddons\\CustomPosts\\Metas\\HeaderOnPages' => $baseDir . '/custom-posts/metas/header-on-pages.php',
     'ChamanAddons\\CustomPosts\\Metas\\Meta' => $baseDir . '/custom-posts/metas/meta.php',

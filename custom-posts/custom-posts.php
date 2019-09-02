@@ -81,6 +81,7 @@ class CustomPosts {
     $this->register_meta(new Metas\HeaderOnPages());
     $this->register_meta(new Metas\ContentOnPages());
     $this->register_meta(new Metas\FooterOnPages());
+    $this->register_meta(new Metas\ContentOnPosts());
   }
 
   public function register_field($instance) {

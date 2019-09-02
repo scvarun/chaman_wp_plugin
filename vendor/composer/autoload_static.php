@@ -72,6 +72,7 @@ class ComposerStaticInit187d8f3e894bedbebaf1dee103573192
         'ChamanAddons\\CustomPosts\\CustomPosts' => __DIR__ . '/../..' . '/custom-posts/custom-posts.php',
         'ChamanAddons\\CustomPosts\\Fields\\SelectPost' => __DIR__ . '/../..' . '/custom-posts/fields/select-post.php',
         'ChamanAddons\\CustomPosts\\Metas\\ContentOnPages' => __DIR__ . '/../..' . '/custom-posts/metas/content-on-pages.php',
+        'ChamanAddons\\CustomPosts\\Metas\\ContentOnPosts' => __DIR__ . '/../..' . '/custom-posts/metas/content-on-posts.php',
         'ChamanAddons\\CustomPosts\\Metas\\FooterOnPages' => __DIR__ . '/../..' . '/custom-posts/metas/footer-on-pages.php',
         'ChamanAddons\\CustomPosts\\Metas\\HeaderOnPages' => __DIR__ . '/../..' . '/custom-posts/metas/header-on-pages.php',
         'ChamanAddons\\CustomPosts\\Metas\\Meta' => __DIR__ . '/../..' . '/custom-posts/metas/meta.php',
