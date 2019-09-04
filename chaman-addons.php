@@ -379,7 +379,6 @@ final class Chaman_Addons {
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Testimonial_Widget() );
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Team_Members_Widget() );
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Facilitators_Widget() );
-    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Single_Facilitator_Widget() );
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Progress_Bar_Widget() );
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Partners_Widget() );
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Job_Listing_Widget() );

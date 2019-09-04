@@ -92,7 +92,6 @@ class ComposerStaticInit187d8f3e894bedbebaf1dee103573192
         'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Partners_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/partners.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Progress_Bar_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/progress-bar.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Sample_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/_sample-widget.php',
-        'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Single_Facilitator_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/singel-facilitator.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Team_Members_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/team-member.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Testimonial_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/testimonial.php',
         'ChamanAddons\\ThemeOptions\\Options\\Footer' => __DIR__ . '/../..' . '/theme-options/options/footer.php',
