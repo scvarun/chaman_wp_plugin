@@ -143,7 +143,7 @@ class Chaman_Elementor_Facilitators_Widget extends ChamanBaseWidget {
                   $email = get_post_meta( get_the_ID(), '__staff__email', true ); 
                   if( $email !== '' ): 
                 ?>
-                  <p><a href="<?php echo $email; ?>" rel="nofollow">Email link</a></p>
+                  <p><a href="mailto:<?php echo $email; ?>" rel="nofollow">Email link</a></p>
                 <?php endif; ?>
               </div><!-- /.facilitator-content -->
             </div><!-- /.facilitators -->
