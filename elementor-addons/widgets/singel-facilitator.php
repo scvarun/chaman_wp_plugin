@@ -9,7 +9,7 @@ use ChamanAddons\ElementorAddons\Controls\Groups;
 use ChamanAddons\ElementorAddons\Widgets\ChamanBaseWidget;
 use Elementor\Controls_Manager;
 
-class Chaman_Elementor_Team_Members_Widget extends ChamanBaseWidget {
+class Chaman_Elementor_Single_Facilitator_Widget extends ChamanBaseWidget {
   
   /**
    * Get Widget name.
@@ -23,7 +23,7 @@ class Chaman_Elementor_Team_Members_Widget extends ChamanBaseWidget {
    * @return string Widget name.
    */
   public function get_name() {
-    return 'chaman_team_members_new_widget';
+    return 'chaman_single_facilitator_widget';
   }
 
   /**
@@ -38,7 +38,7 @@ class Chaman_Elementor_Team_Members_Widget extends ChamanBaseWidget {
    * @return string Widget title.
    */
   public function get_title() {
-    return __('Team Members', 'chaman_addons');
+    return __('Single Facilitator', 'chaman_addons');
   }
 
   /**
@@ -96,8 +96,9 @@ class Chaman_Elementor_Team_Members_Widget extends ChamanBaseWidget {
       [
         'name' => 'custom_query',
         'label' => __('Custom Query', 'unifato_addons'),
+        'description' => __('Add the post id of the facilitator you want to display, in the post id field.', 'unifato_addons'),
         'posts_per_page_field' => [
-          'default' => 5,
+          'default' => 1,
         ],
         'post_type_field' => [
           'default' => 'staff',
@@ -128,27 +129,28 @@ class Chaman_Elementor_Team_Members_Widget extends ChamanBaseWidget {
 
     $query = new \WP_Query($args);
 
-    $id = $this->get_id();
-
     ?>
       <?php if( $query->have_posts() ): ?>
-        <div id="team-members-<?php echo $id; ?>" class="team-members">
-        <?php while( $query->have_posts() ): $query->the_post(); ?>
-          <div class="team-member-single">
+        <?php while( $query->have_posts() ) : $query->the_post(); ?>
+          <div class="facilitator">
             <?php if( has_post_thumbnail() ): ?>
               <figure>
                 <?php the_post_thumbnail(); ?>
               </figure>
             <?php endif; ?>
-            <div class="team-member-content">
-              <h5 class="team-member-name"><?php echo get_the_title(); ?></h5>
-              <p class="team-member-title"><?php echo get_post_meta( get_the_ID(), '__staff__title', true ); ?></p>
-              <?php the_content(); ?>
-            </div><!-- /.team-member-content -->
-          </div><!-- /.team-member-single -->
+            <div class="facilitator-content">
+              <span><?php echo get_the_title(); ?></span>
+              <span><?php echo get_post_meta( get_the_ID(), '__staff__title', true ); ?></span>
+              <?php
+                $email = get_post_meta( get_the_ID(), '__staff__email', true ); 
+                if( $email !== '' ): 
+              ?>
+                <p><a href="<?php echo $email; ?>" rel="nofollow">Email link</a></p>
+              <?php endif; ?>
+            </div><!-- /.facilitator-content -->
+          </div><!-- /.facilitators -->
         <?php endwhile; ?>
-        </div><!-- /.team-members -->
-      <?php endif; ?>     
+      <?php endif; ?>
     <?php
     wp_reset_postdata();
   }

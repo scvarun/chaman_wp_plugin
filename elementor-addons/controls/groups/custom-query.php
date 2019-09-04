@@ -74,10 +74,10 @@ class CustomQuery_Control extends \Elementor\Group_Control_Base {
     ];
 
     $fields['post__in'] = [
-      'type' => Controls_Manager::SELECT2,
+      'type' => Controls_Manager::TEXT,
       'label' => __('Posts ID', 'unifato_addons'),
-      'description' => __('List of posts id to display.', 'unifato_addons'),
-      'multiple' => true,
+      'description' => __('Comma-Seperated list of posts id to display.', 'unifato_addons'),
+      'default' => '',
     ];
 
     $fields['author__in'] = [
@@ -186,6 +186,12 @@ class CustomQuery_Control extends \Elementor\Group_Control_Base {
       'posts_per_page' => [
         'default' => 10,
       ],
+      'posts_per_page_field' => null,
+      'post__in_field' => null,
+      'author__in_field' => null,
+      'category__in_field' => null,
+      'tag__in_field' => null,
+      'post_type_field' => null,
     ];
   }
 
@@ -215,11 +221,20 @@ class CustomQuery_Control extends \Elementor\Group_Control_Base {
 
       $fields = $this->set_field_from_args($fields, 'posts_per_page', $args, 'posts_per_page');
 
-      if( $args['posts_per_page_field']['disabled'] == true )
+      if( 
+        isset($args['posts_per_page_field']['disabled']) && 
+        $args['posts_per_page_field']['disabled'] == true ) {
         unset($fields['posts_per_page_field']);
+      }
     }
 
+    // Post In Field
+    if( $args['post__in_field'] !== null )
+      $fields['post__in'] = array_merge($fields['post__in'], $args['post__in_field']);
+
     // Authors Field
+    if( $args['author__in_field'] !== null )
+      $fields['author__in'] = array_merge($fields['author__in'], $args['author__in_field']);
     $authors = get_users(['fields' => ['ID', 'display_name']]);
     $author_for_field = [];
     foreach($authors as $author) {
@@ -228,6 +243,8 @@ class CustomQuery_Control extends \Elementor\Group_Control_Base {
     $fields['author__in']['options'] = $author_for_field;
 
     // Category Field
+    if( $args['category__in_field'] !== null )
+      $fields['category__in'] = array_merge($fields['category__in'], $args['category__in_field']);
     $categories = get_categories();
     $category_for_field = [];
     foreach($categories as $category) {
@@ -236,6 +253,8 @@ class CustomQuery_Control extends \Elementor\Group_Control_Base {
     $fields['category__in']['options'] = $category_for_field;
 
     // Tags Field
+    if( $args['tag__in_field'] !== null )
+      $fields['tag__in'] = array_merge($fields['tag__in'], $args['tag__in_field']);
     $tags = get_tags();
     $tags_for_field = [];
     foreach($tags as $tag) {
@@ -244,6 +263,9 @@ class CustomQuery_Control extends \Elementor\Group_Control_Base {
     $fields['tag__in']['options'] = $tags_for_field;
 
     // Post Type Field
+    if( $args['post_type_field'] !== null )
+      $fields['post_type'] = array_merge($fields['post_type'], $args['post_type_field']);
+
     $post_types = get_post_types([
       'public' => true,
     ], 'classes');
@@ -305,11 +327,23 @@ class CustomQuery_Control extends \Elementor\Group_Control_Base {
           $arr['date_query']['after'] = $value;
         } else if($new_key == 'inclusive') {
           $arr['date_query']['inclusive'] = $value == 'yes';
-        }else {
+        } else if($new_key == 'post__in') {
+          if($value != '') {
+            $values = explode(',', $value);
+            foreach($values as $v) {
+              $arr['post__in'][] = intval(trim($v));
+            }
+          } else {
+            $arr['post__in'] = null;
+          }
+        } else {
           $arr[$new_key] = $value;
         }
       }
     }
+
+    if($arr['post__in'] != null)
+      $arr['orderby'] = 'post__in';
 
     return $arr;
   }

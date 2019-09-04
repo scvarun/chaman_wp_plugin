@@ -77,6 +77,7 @@ class CustomPosts {
    */
   public function content_types() {
     $this->register_post_type(new Types\Footer());
+    $this->register_post_type(new Types\Staff());
 
     $this->register_meta(new Metas\HeaderOnPages());
     $this->register_meta(new Metas\ContentOnPages());
