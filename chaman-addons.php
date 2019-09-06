@@ -401,6 +401,8 @@ final class Chaman_Addons {
 
     // Register Controls
     // $controls_manager->register_control('chaman_sample', new Sample_Control());
+    $controls_manager->register_control('disabled_text', new Controls\Disabled_Text_Control());
+
     // $controls_manager->add_group_control('chaman_sample_group', new Controls\Groups\SampleGroup_Control());
 
     $controls_manager->add_group_control(

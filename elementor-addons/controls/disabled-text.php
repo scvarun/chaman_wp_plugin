@@ -5,7 +5,7 @@ namespace ChamanAddons\ElementorAddons\Controls;
 // Prevent Data Leak
 if ( !defined( 'ABSPATH') ) exit;
 
-class Sample_Control extends \Elementor\Base_Data_Control {
+class Disabled_Text_Control extends \Elementor\Base_Data_Control {
 
   /**
    * Return the type of control
@@ -17,7 +17,7 @@ class Sample_Control extends \Elementor\Base_Data_Control {
    * @access public
    */
   public function get_type() {
-    return 'chaman_sample';
+    return 'disabled_text';
   }
 
   /**
@@ -68,9 +68,8 @@ class Sample_Control extends \Elementor\Base_Data_Control {
     $control_uid = $this->get_control_uid();
     ?>
       <div class="elementor-control-field">
-        <label for="<?php echo $control_uid; ?>" class="elementor-control-title">Sample Control</label>
+        <label for="<?php echo $control_uid; ?>" class="elementor-control-title">{{ data.label }}</label>
         <div class="elementor-control-input-wrapper">
-          <input type="text" id="<?php echo $control_uid; ?>" class="elementor-control-text" />
         </div>
       </div>
 
