@@ -141,7 +141,15 @@ class Chaman_Elementor_Team_Members_Widget extends ChamanBaseWidget {
               </figure>
             <?php endif; ?>
             <div class="team-member-content">
-              <h5 class="team-member-name"><?php echo get_the_title(); ?></h5>
+              <h5 class="team-member-name">
+                <?php $link = get_post_meta( get_the_ID(), '__staff__link', true ); if( $link !== '' ): ?>
+                  <a href="<?php echo $link; ?>">
+                    <?php echo get_the_title(); ?>
+                  </a>
+                <?php else: ?>
+                  <?php echo get_the_title(); ?>
+                <?php endif; ?>
+              </h5>
               <p class="team-member-title"><?php echo get_post_meta( get_the_ID(), '__staff__title', true ); ?></p>
               <?php the_content(); ?>
             </div><!-- /.team-member-content -->

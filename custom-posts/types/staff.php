@@ -67,5 +67,13 @@ class Staff extends Type {
       'type'          => 'text_email',
       'default'       => '',
     ]);
+
+    $cmb->add_field([
+      'name'          => __( 'Link', 'chaman_addons' ),
+      'desc'          => __( 'Link to a post/stories', 'chaman_addons' ),
+      'id'            => '__staff__link',
+      'type'          => 'text',
+      'default'       => '',
+    ]);
   }
 }

@@ -94,6 +94,15 @@ class Chaman_Elementor_Partners_Widget extends ChamanBaseWidget {
     $repeater = new \Elementor\Repeater();
 
     $repeater->add_control(
+      'link',
+      [
+        'label' => __('Link', 'chaman_addons'),
+        'type' => \Elementor\Controls_Manager::TEXT,
+        'default' => '',
+      ]
+    );
+
+    $repeater->add_control(
       'title',
       [
         'label' => __('Title', 'chaman_addons'),
@@ -170,7 +179,15 @@ class Chaman_Elementor_Partners_Widget extends ChamanBaseWidget {
             <img src="<?php echo $partner['image']['url']; ?>" alt="<?php echo $partner['title']; ?>" />
           </figure>
           <div class="partners-single-content">
-            <h5 class="partners-single-title"><?php echo $partner['title']; ?></h5>
+            <h5 class="partners-single-title">
+              <?php $link = $partner['link']; if($link !== ''): ?>
+                <a href="<?php echo $link; ?>">
+                  <?php echo $partner['title']; ?>
+                </a>
+              <?php else: ?>
+                <?php echo $partner['title']; ?>    
+              <?php endif; ?>
+            </h5>
             <p class="partners-single-subtitle"><?php echo $partner['subtitle']; ?></p>
             <p><?php echo $partner['description']; ?></p>
           </div><!-- /.partners-single-content -->
