@@ -88,6 +88,7 @@ class ComposerStaticInit187d8f3e894bedbebaf1dee103573192
         'ChamanAddons\\ElementorAddons\\Controls\\Sample_Control' => __DIR__ . '/../..' . '/elementor-addons/controls/_sample-control.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\ChamanBaseWidget' => __DIR__ . '/../..' . '/elementor-addons/widgets/unifato-base-widget.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Button_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/button.php',
+        'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Countdown_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/countdown.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Facilitators_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/facilitators.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Job_Listing_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/job-listing.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Latest_Post_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/latest-posts.php',

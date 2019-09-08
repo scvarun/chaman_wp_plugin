@@ -382,6 +382,7 @@ final class Chaman_Addons {
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Progress_Bar_Widget() );
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Partners_Widget() );
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Job_Listing_Widget() );
+    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Countdown_Widget() );
   }
 
   /**
@@ -462,6 +463,7 @@ final class Chaman_Addons {
    */
   public function widget_scripts() {
     // wp_register_script( '', CHAMAN_ADDONS_ROOT . '/assets/css/widgets/sample-widget.css' );
+    wp_register_script( 'jquery.countdown', CHAMAN_ADDONS_ROOT_URI . '/elementor-addons/assets/vendors/jquery.countdown/jquery.countdown.min.js' );
   }
 
   /**

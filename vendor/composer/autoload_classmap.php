@@ -27,6 +27,7 @@ return array(
     'ChamanAddons\\ElementorAddons\\Controls\\Sample_Control' => $baseDir . '/elementor-addons/controls/_sample-control.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\ChamanBaseWidget' => $baseDir . '/elementor-addons/widgets/unifato-base-widget.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Button_Widget' => $baseDir . '/elementor-addons/widgets/button.php',
+    'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Countdown_Widget' => $baseDir . '/elementor-addons/widgets/countdown.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Facilitators_Widget' => $baseDir . '/elementor-addons/widgets/facilitators.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Job_Listing_Widget' => $baseDir . '/elementor-addons/widgets/job-listing.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Latest_Post_Widget' => $baseDir . '/elementor-addons/widgets/latest-posts.php',
