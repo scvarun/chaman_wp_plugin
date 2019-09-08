@@ -138,7 +138,7 @@ class Chaman_Elementor_Team_Members_Widget extends ChamanBaseWidget {
             <?php if( has_post_thumbnail() ): ?>
               <figure>
                 <a class="pos-0 text-indent-full" href="<?php echo get_post_meta( get_the_ID(), '__staff__link', true ); ?>">
-                  <?php echo $partner['title']; ?>    
+                  <?php echo get_the_title(); ?>   
                 </a>
                 <?php the_post_thumbnail(); ?>
               </figure>
