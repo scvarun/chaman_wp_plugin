@@ -98,7 +98,7 @@ class Chaman_Elementor_Partners_Widget extends ChamanBaseWidget {
       [
         'label' => __('Link', 'chaman_addons'),
         'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => '',
+        'default' => '#',
       ]
     );
 
@@ -176,17 +176,14 @@ class Chaman_Elementor_Partners_Widget extends ChamanBaseWidget {
         <?php foreach($settings['list'] as $partner): ?>
         <div class="partners-single">
           <figure>
+            <a class="pos-0 text-indent-full" href="<?php echo $partner['link']; ?>"><?php echo $partner['title']; ?></a>
             <img src="<?php echo $partner['image']['url']; ?>" alt="<?php echo $partner['title']; ?>" />
           </figure>
           <div class="partners-single-content">
             <h5 class="partners-single-title">
-              <?php $link = $partner['link']; if($link !== ''): ?>
-                <a href="<?php echo $link; ?>">
-                  <?php echo $partner['title']; ?>
-                </a>
-              <?php else: ?>
-                <?php echo $partner['title']; ?>    
-              <?php endif; ?>
+              <a href="<?php echo $partner['link']; ?>">
+                <?php echo $partner['title']; ?>
+              </a>
             </h5>
             <p class="partners-single-subtitle"><?php echo $partner['subtitle']; ?></p>
             <p><?php echo $partner['description']; ?></p>

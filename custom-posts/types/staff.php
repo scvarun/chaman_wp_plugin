@@ -73,7 +73,7 @@ class Staff extends Type {
       'desc'          => __( 'Link to a post/stories', 'chaman_addons' ),
       'id'            => '__staff__link',
       'type'          => 'text',
-      'default'       => '',
+      'default'       => '#',
     ]);
   }
 }
