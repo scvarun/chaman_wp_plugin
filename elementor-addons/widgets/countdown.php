@@ -94,7 +94,7 @@ class Chaman_Elementor_Countdown_Widget extends ChamanBaseWidget {
     $this->add_control(
       'date',
       [
-        'label' => __('Date', 'unifato_addons'),
+        'label' => __('Date', 'chaman_addons'),
         'type' => \Elementor\Controls_Manager::DATE_TIME,
         'picker_options' => [
           'minDate' => 'today'
@@ -105,10 +105,10 @@ class Chaman_Elementor_Countdown_Widget extends ChamanBaseWidget {
     $this->add_control(
       'show_days',
       [
-        'label' => __('Show Days', 'unifato_addons'),
+        'label' => __('Show Days', 'chaman_addons'),
         'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => __('Yes', 'unifato_addons'),
-        'label_off' => __('No', 'unifato_addons'),
+        'label_on' => __('Yes', 'chaman_addons'),
+        'label_off' => __('No', 'chaman_addons'),
         'return_value' => 'yes',
         'default' => 'yes'
       ]
@@ -117,10 +117,10 @@ class Chaman_Elementor_Countdown_Widget extends ChamanBaseWidget {
     $this->add_control(
       'show_hours',
       [
-        'label' => __('Show Hours', 'unifato_addons'),
+        'label' => __('Show Hours', 'chaman_addons'),
         'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => __('Yes', 'unifato_addons'),
-        'label_off' => __('No', 'unifato_addons'),
+        'label_on' => __('Yes', 'chaman_addons'),
+        'label_off' => __('No', 'chaman_addons'),
         'return_value' => 'yes',
         'default' => 'yes'
       ]
@@ -129,10 +129,10 @@ class Chaman_Elementor_Countdown_Widget extends ChamanBaseWidget {
     $this->add_control(
       'show_minutes',
       [
-        'label' => __('Show Minutes', 'unifato_addons'),
+        'label' => __('Show Minutes', 'chaman_addons'),
         'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => __('Yes', 'unifato_addons'),
-        'label_off' => __('No', 'unifato_addons'),
+        'label_on' => __('Yes', 'chaman_addons'),
+        'label_off' => __('No', 'chaman_addons'),
         'return_value' => 'yes',
         'default' => 'yes'
       ]
@@ -141,10 +141,10 @@ class Chaman_Elementor_Countdown_Widget extends ChamanBaseWidget {
     $this->add_control(
       'show_seconds',
       [
-        'label' => __('Show Seconds', 'unifato_addons'),
+        'label' => __('Show Seconds', 'chaman_addons'),
         'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => __('Yes', 'unifato_addons'),
-        'label_off' => __('No', 'unifato_addons'),
+        'label_on' => __('Yes', 'chaman_addons'),
+        'label_off' => __('No', 'chaman_addons'),
         'return_value' => 'yes',
         'default' => 'yes'
       ]
@@ -153,7 +153,7 @@ class Chaman_Elementor_Countdown_Widget extends ChamanBaseWidget {
     $this->add_control(
       'finished_message',
       [
-        'label' => __('Finished Message', 'unifato_addons'),
+        'label' => __('Finished Message', 'chaman_addons'),
         'type' => \Elementor\Controls_Manager::WYSIWYG,
         'default' => 'Welcome to the Future'
       ]

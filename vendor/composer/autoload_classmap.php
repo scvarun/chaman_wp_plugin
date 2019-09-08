@@ -34,6 +34,7 @@ return array(
     'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Partners_Widget' => $baseDir . '/elementor-addons/widgets/partners.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Progress_Bar_Widget' => $baseDir . '/elementor-addons/widgets/progress-bar.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Sample_Widget' => $baseDir . '/elementor-addons/widgets/_sample-widget.php',
+    'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Slider_Arrow_Widget' => $baseDir . '/elementor-addons/widgets/slider-arrow.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Team_Members_Widget' => $baseDir . '/elementor-addons/widgets/team-member.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Testimonial_Widget' => $baseDir . '/elementor-addons/widgets/testimonial.php',
     'ChamanAddons\\ThemeOptions\\Options\\Footer' => $baseDir . '/theme-options/options/footer.php',
