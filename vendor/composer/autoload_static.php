@@ -86,6 +86,8 @@ class ComposerStaticInit187d8f3e894bedbebaf1dee103573192
         'ChamanAddons\\ElementorAddons\\Controls\\Groups\\CustomQuery_Control' => __DIR__ . '/../..' . '/elementor-addons/controls/groups/custom-query.php',
         'ChamanAddons\\ElementorAddons\\Controls\\Groups\\SampleGroup_Control' => __DIR__ . '/../..' . '/elementor-addons/controls/groups/_sample-group-control.php',
         'ChamanAddons\\ElementorAddons\\Controls\\Sample_Control' => __DIR__ . '/../..' . '/elementor-addons/controls/_sample-control.php',
+        'ChamanAddons\\ElementorAddons\\Extras\\Controls\\Background_Parallax_Control' => __DIR__ . '/../..' . '/elementor-addons/extras/controls/parallax.php',
+        'ChamanAddons\\ElementorAddons\\Extras\\Extras_Base' => __DIR__ . '/../..' . '/elementor-addons/extras/extras.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\ChamanBaseWidget' => __DIR__ . '/../..' . '/elementor-addons/widgets/unifato-base-widget.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Button_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/button.php',
         'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Countdown_Widget' => __DIR__ . '/../..' . '/elementor-addons/widgets/countdown.php',

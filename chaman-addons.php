@@ -147,6 +147,9 @@ final class Chaman_Addons {
     if( $this->check_elementor_installation() === 0 ) return;
     if( $this->check_elementor_version() === 0 ) return;
 
+    // Register Controls to Default Elementor
+    $this->controls_to_default_elementor();
+
     // Register Categories
     add_action(
       'elementor/elements/categories_registered',
@@ -465,6 +468,7 @@ final class Chaman_Addons {
   public function widget_scripts() {
     // wp_register_script( '', CHAMAN_ADDONS_ROOT . '/assets/css/widgets/sample-widget.css' );
     wp_register_script( 'jquery.countdown', CHAMAN_ADDONS_ROOT_URI . '/elementor-addons/assets/vendors/jquery.countdown/jquery.countdown.min.js' );
+    wp_register_script( 'jarallax', CHAMAN_ADDONS_ROOT_URI . '/elementor-addons/assets/vendors/jarallax/jarallax.min.js' );
   }
 
   /**
@@ -478,6 +482,10 @@ final class Chaman_Addons {
    */
   public function editor_scripts() {
     // wp_register_script( '', CHAMAN_ADDONS_ROOT . '/assets/css/widgets/sample-widget.css' );
+  }
+
+  public function controls_to_default_elementor() {
+    new ElementorAddons\Extras\Controls\Background_Parallax_Control();
   }
 }
 

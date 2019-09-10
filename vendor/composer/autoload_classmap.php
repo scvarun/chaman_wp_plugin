@@ -25,6 +25,8 @@ return array(
     'ChamanAddons\\ElementorAddons\\Controls\\Groups\\CustomQuery_Control' => $baseDir . '/elementor-addons/controls/groups/custom-query.php',
     'ChamanAddons\\ElementorAddons\\Controls\\Groups\\SampleGroup_Control' => $baseDir . '/elementor-addons/controls/groups/_sample-group-control.php',
     'ChamanAddons\\ElementorAddons\\Controls\\Sample_Control' => $baseDir . '/elementor-addons/controls/_sample-control.php',
+    'ChamanAddons\\ElementorAddons\\Extras\\Controls\\Background_Parallax_Control' => $baseDir . '/elementor-addons/extras/controls/parallax.php',
+    'ChamanAddons\\ElementorAddons\\Extras\\Extras_Base' => $baseDir . '/elementor-addons/extras/extras.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\ChamanBaseWidget' => $baseDir . '/elementor-addons/widgets/unifato-base-widget.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Button_Widget' => $baseDir . '/elementor-addons/widgets/button.php',
     'ChamanAddons\\ElementorAddons\\Widgets\\Chaman_Elementor_Countdown_Widget' => $baseDir . '/elementor-addons/widgets/countdown.php',
