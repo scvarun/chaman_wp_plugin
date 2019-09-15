@@ -63,6 +63,19 @@ class Background_Parallax_Control {
     );
 
     $element->add_control(
+      'background_mobile_parallax_speed',
+      [
+        'label' => __('Mobile Parallax Speed', 'chaman_addons'),
+        'type' => \Elementor\Controls_Manager::NUMBER,
+        'default' => .9,
+        'min' => -1,
+        'max' => 2,
+        'step' => .01,
+        'description' => __('Mobile Parallax effect speed. Provide numbers from -1.0 to 2.0.', 'chaman_addons'),
+      ]
+    );
+
+    $element->add_control(
       'background_parallax_type',
       [
         'label' => __('Type', 'chaman_addons'),
@@ -98,6 +111,7 @@ class Background_Parallax_Control {
       'imgPosition' => $settings['background_parallax_position'],
       'imgRepeat' => $settings['background_parallax_repeat'],
       'speed' => $settings['background_parallax_speed'],
+      'mobileSpeed' => $settings['background_mobile_parallax_speed'],
       'type' => $settings['background_parallax_type'],
     ];
 
