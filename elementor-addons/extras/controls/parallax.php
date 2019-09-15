@@ -54,7 +54,7 @@ class Background_Parallax_Control {
       [
         'label' => __('Parallax Speed', 'chaman_addons'),
         'type' => \Elementor\Controls_Manager::NUMBER,
-        'default' => .6,
+        'default' => .2,
         'min' => -1,
         'max' => 2,
         'step' => .01,
