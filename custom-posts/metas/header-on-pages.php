@@ -40,5 +40,17 @@ class HeaderOnPages extends Meta {
       ],
     ]);
 
+    $cmb->add_field([
+      'name'          => __('Hide Header?', 'chaman_addons'),
+      'desc'          => __('Hide the header on the page.', 'chaman_addons'),
+      'id'            => '__header__hide',
+      'type'          => 'radio_inline',
+      'default'       => 'no',
+      'options'       => [
+        'yes' => __('Yes', 'chaman_addons'),
+        'no' => __('No', 'chaman_addons'),
+      ],
+    ]);
+
   }
 }
