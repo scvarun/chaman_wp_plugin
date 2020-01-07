@@ -9,7 +9,7 @@ use ChamanAddons\ElementorAddons\Controls\Groups;
 use ChamanAddons\ElementorAddons\Widgets\ChamanBaseWidget;
 use Elementor\Controls_Manager;
 
-class Chaman_Elementor_Testimonial_Widget extends ChamanBaseWidget {
+class Chaman_Elementor_Text_Box_Widget extends ChamanBaseWidget {
   
   /**
    * Get Widget name.
@@ -23,7 +23,7 @@ class Chaman_Elementor_Testimonial_Widget extends ChamanBaseWidget {
    * @return string Widget name.
    */
   public function get_name() {
-    return 'chaman_testimonial_widget';
+    return 'chaman_textbox_widget';
   }
 
   /**
@@ -38,7 +38,7 @@ class Chaman_Elementor_Testimonial_Widget extends ChamanBaseWidget {
    * @return string Widget title.
    */
   public function get_title() {
-    return __('Testimonial', 'chaman_addons');
+    return __('Text Box', 'chaman_addons');
   }
 
   /**
@@ -101,28 +101,10 @@ class Chaman_Elementor_Testimonial_Widget extends ChamanBaseWidget {
     );
 
     $this->add_control(
-      'name',
-      [
-        'label' => __('Name', 'chaman_addons'),
-        'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => 'John Doe'
-      ]
-    );
-
-    $this->add_control(
-      'user_title',
-      [
-        'label' => __('User title', 'chaman_addons'),
-        'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => 'Lorem Ipsum',
-      ]
-    );
-
-    $this->add_control(
       'text',
       [
         'label' => __('Text', 'chaman_addons'),
-        'type' => \Elementor\Controls_Manager::TEXTAREA,
+        'type' => \Elementor\Controls_Manager::WYSIWYG,
         'default' => 'Suspendisse potenti. Proin at lectus condimentum, aliquam justo ac, suscipit urna. Proin at ligula porta lacus tempus ullamcorper. Nunc lacus neque, tempor vitae risus eget, porta frigilla nibh.',
       ]
     );
@@ -158,6 +140,24 @@ class Chaman_Elementor_Testimonial_Widget extends ChamanBaseWidget {
       ]
     );
 
+    $this->add_group_control(
+      Groups\ColorPicker_Control::get_type(),
+      [
+        'name' => 'color',
+        'label' => __('Color', 'chaman_addons'),
+        'custom_color_field' => [
+          'default_selector' => false,
+          'selectors' => [
+            '{{SELECTOR}} .text-box-content' => 'background: {{VALUE}}'
+          ],
+        ],
+        'theme_color_field' => [
+          'default_selector' => false,
+          'default' => 'primary'
+        ],
+      ]
+    );
+
     $this->end_controls_section();
 
     $this->_register_controls_parent();
@@ -177,39 +177,34 @@ class Chaman_Elementor_Testimonial_Widget extends ChamanBaseWidget {
     
     $settings = $this->get_settings_for_display();
 
-    $classes = "testimonial testimonial-" . $settings['alignment'];
+    $classes = "text-box text-box-" . $settings['alignment'];
+
+    $content_classes = "text-box-content";
+
+    if($settings['color_theme_color'])
+      $content_classes .= ' bg-' . $settings['color_theme_color'];
 
     ?>
-    
-      <blockquote class="<?php echo $classes; ?>">
-        <div class="row testimonial-title-wrapper">
-          <div class="col-sm-6 zi-1">
-            <h3 class="testimonial-title"><?php echo $settings['title']; ?></h3>
-          </div><!-- /.col-sm-6 -->
-        </div>
-
-        <div class="row testimonial-figure-wrapper">
-          <div class="col-sm-8 <?php echo $settings['alignment'] === 'left' ? 'ml-auto' : 'mr-auto'; ?>">
-            <figure>
-              <img src="<?php echo $settings['image']['url']; ?>" alt="<?php echo $settings['name'] . ' - ' . $settings['user_title']; ?>">
-            </figure>
-          </div><!-- /.col-sm-8 -->
-        </div><!-- /.row -->
-
-        <div class="row testimonial-content-wrapper">
+      <div class="<?php echo $classes; ?>">
+        <div class="row no-gutters">
           <div class="col-sm-6">
-            <h6 class="testimonial-user-info">
-              <span class="testimonial-user-name"><?php echo $settings['name']; ?></span> &mdash;
-              <span class="testimonial-user-title"><?php echo $settings['user_title']; ?></span>
-            </h6>
-            <p><?php echo $settings['text']; ?></p>
+            <figure style="background-image: url('<?php echo $settings['image']['url']; ?>');">
+              <img src="<?php echo $settings['image']['url']; ?>" alt="<?php echo $settings['title']; ?>">
+            </figure>
+          </div><!-- /.col-sm-6 -->
+          
+          <div class="col-sm-6">
+            <div 
+              class="<?php echo $content_classes; ?>">
+              <h5 class="text-box-title"><?php echo $settings['title']; ?></h5>
+              <div class="text-box-body"><?php echo $settings['text']; ?></div>
+            </div><!-- /.text-box-content -->
           </div><!-- /.col-sm-6 -->
         </div><!-- /.row -->
-      </blockquote>
-      
+      </div>
     <?php
   }
-
+ 
   /**
    * Prints output to Elementor Editor
    * 

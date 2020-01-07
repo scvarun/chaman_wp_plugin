@@ -10,7 +10,6 @@ use ChamanAddons\ElementorAddons\Widgets\ChamanBaseWidget;
 use Elementor\Controls_Manager;
 
 class Chaman_Elementor_Latest_Post_Widget extends ChamanBaseWidget {
-  
   /**
    * Get Widget name.
    * 
@@ -132,7 +131,7 @@ class Chaman_Elementor_Latest_Post_Widget extends ChamanBaseWidget {
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
               <?php if( has_post_thumbnail() ): ?>
               <figure class="entry-thumbnail">
-                <?php the_post_thumbnail(); ?>
+                <?php the_post_thumbnail('latest_post_image'); ?>
                 <a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a>
               </figure>
               <?php endif; ?>

@@ -387,6 +387,8 @@ final class Chaman_Addons {
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Job_Listing_Widget() );
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Countdown_Widget() );
     $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Slider_Arrow_Widget() );
+    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Text_Box_Widget() );
+    $widgets_manager->register_widget_type( new Widgets\Chaman_Elementor_Social_Icon_List_Widget() );
   }
 
   /**

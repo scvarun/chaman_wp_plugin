@@ -33,7 +33,28 @@ class ContentOnPages extends Meta {
       'name'          => __( 'Background', 'chaman_addons' ),
       'desc'          => __( 'Set background for content wrapper', 'chaman_addons' ),
       'id'            => '__content__background',
-      'type'    => 'colorpicker',
+      'type'          => 'colorpicker',
+    ]);
+
+    // Hide Page title from page
+    $cmb->add_field([
+      'name'          => __( 'Hide Page Title?', 'chaman_addons' ),
+      'desc'          => __( 'Hide page title from page', 'chaman_addons' ),
+      'id'            => '__content__page-title-hidden',
+      'type'          => 'radio_inline',
+      'default'       => 'no',
+      'options'       =>  [
+        'yes' => __('Yes', 'chaman_addons'),
+        'no' => __('No', 'chaman_addons'),
+      ],
+    ]);
+
+    // Change Page title color
+    $cmb->add_field([
+      'name'          => __( 'Page Title Color', 'chaman_addons' ),
+      'desc'          => __( 'Set color for page title', 'chaman_addons' ),
+      'id'            => '__content__page-title-color',
+      'type'          => 'colorpicker',
     ]);
   }
 }

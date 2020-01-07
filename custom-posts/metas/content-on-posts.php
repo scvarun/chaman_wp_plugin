@@ -34,5 +34,17 @@ class ContentOnPosts extends Meta {
       'id'            => '__content_posts__alternate_title',
       'type'          => 'text',
     ]);
+
+    $cmb->add_field([
+      'name'          => __( 'Post Alignment', 'chaman_addons' ),
+      'desc'          => __( 'Alignment of posts on archive and blog pages', 'chaman_addons' ),
+      'id'            => '__content_posts__alignment',
+      'type'          => 'select',
+      'default'       => 'left',
+      'options'       => [
+        'left'  => __('Left', 'chaman_addons'),
+        'right'  => __('Right', 'chaman_addons'),
+      ]
+    ]);
   }
 }

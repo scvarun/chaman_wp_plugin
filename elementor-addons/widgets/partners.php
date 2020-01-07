@@ -112,19 +112,10 @@ class Chaman_Elementor_Partners_Widget extends ChamanBaseWidget {
     );
 
     $repeater->add_control(
-      'subtitle', 
-      [
-        'label' => __('Subtitle', 'chaman_addons'),
-        'type'  => \Elementor\Controls_Manager::TEXT,
-        'default' => 'Subtitle',
-      ]
-    );
-
-    $repeater->add_control(
       'description', 
       [
         'label' => __('Description', 'chaman_addons'),
-        'type'  => \Elementor\Controls_Manager::TEXT,
+        'type'  => \Elementor\Controls_Manager::WYSIWYG,
         'default' => 'Proin at lectus condimentum, aliquam justo ac, suscipit urna. Proin at ligula porta lacus tempus ullamcorper. Nunc lacus neque, tempor vitae risus eget, porta fringilla',
       ]
     );
@@ -172,7 +163,7 @@ class Chaman_Elementor_Partners_Widget extends ChamanBaseWidget {
     $id = $this->get_id();
     ?>
 
-      <div id="partners-<?php echo $id; ?>" class="partners" data-plugin-options='{"slidesToShow": 2, "slidesToScroll": 2}'>
+      <div id="partners-<?php echo $id; ?>" class="partners" data-plugin-options='{"slidesToShow": 3, "slidesToScroll": 3}'>
         <?php foreach($settings['list'] as $partner): ?>
         <div class="partners-single">
           <figure>
@@ -185,8 +176,7 @@ class Chaman_Elementor_Partners_Widget extends ChamanBaseWidget {
                 <?php echo $partner['title']; ?>
               </a>
             </h5>
-            <p class="partners-single-subtitle"><?php echo $partner['subtitle']; ?></p>
-            <p><?php echo $partner['description']; ?></p>
+            <?php echo $partner['description']; ?>
           </div><!-- /.partners-single-content -->
         </div><!-- /.partners-single -->
         <?php endforeach; ?>
